@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Communities in the Wild: A Workshop on BGP Communities, co-located with ACM IMC 2026 in Karlsruhe, Germany.">
+  <title>Communities in the Wild | A Workshop on BGP Communities</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #1d2630;
+      --muted: #5f6b76;
+      --accent: #244f73;
+      --accent-dark: #17374f;
+      --border: #dce2e8;
+      --max-width: 980px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+    a:hover { color: var(--accent-dark); }
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 3.5rem 1.25rem 2.75rem;
+    }
+    .logo {
+      display: block;
+      width: min(180px, 45vw);
+      height: auto;
+      margin: 0 auto 1.5rem;
+    }
+    .site-title {
+      margin: 0;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+    }
+    .site-subtitle {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 400;
+    }
+    .event-meta { margin-top: 1.6rem; color: var(--text); font-weight: 600; }
+    .event-meta span { display: inline-block; margin: 0.15rem 0.45rem; }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .site-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.25rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1rem;
+      list-style: none;
+    }
+    .site-nav a { color: var(--text); font-size: 0.95rem; font-weight: 650; text-decoration: none; }
+    .site-nav a:hover { color: var(--accent); }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    section { scroll-margin-top: 5rem; margin: 0 0 3.25rem; }
+    h2 {
+      margin: 0 0 1rem;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      line-height: 1.2;
+    }
+    p { margin: 0.75rem 0; }
+    .lead { font-size: 1.12rem; }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: var(--surface);
+      padding: 1rem 1.15rem;
+      box-shadow: 0 4px 18px rgba(20, 40, 60, 0.05);
+    }
+    .news-list { margin: 0; padding: 0; list-style: none; }
+    .news-list li {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-list time { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .program-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .program-table th, .program-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+    .program-table th { background: #eef3f7; color: var(--accent-dark); font-size: 0.95rem; }
+    .program-table tr:last-child td { border-bottom: 0; }
+    .program-table .time {
+      width: 9rem;
+      white-space: nowrap;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 1rem;
+    }
+    .person { background: var(--surface); border: 1px solid var(--border); padding: 1rem 1.1rem; }
+    .person strong { display: block; color: var(--accent-dark); }
+    .person span { color: var(--muted); font-size: 0.95rem; }
+    .placeholder { color: var(--muted); font-style: italic; }
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+      padding: 1.6rem 1rem;
+      font-size: 0.92rem;
+    }
+    @media (max-width: 650px) {
+      body { font-size: 16px; }
+      .site-header { padding-top: 2.5rem; }
+      .site-nav { position: static; }
+      .news-list li { grid-template-columns: 1fr; gap: 0.1rem; }
+      .program-table, .program-table tbody, .program-table tr, .program-table td { display: block; width: 100%; }
+      .program-table thead { display: none; }
+      .program-table tr { border-bottom: 1px solid var(--border); padding: 0.5rem 0; }
+      .program-table td { border: 0; padding: 0.35rem 0.9rem; }
+      .program-table .time { width: auto; font-weight: 700; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <img class="logo" src="assets/logo.svg" alt="Communities in the Wild workshop logo" onerror="this.style.display='none'">
+    <h1 class="site-title">Communities in the Wild</h1>
+    <p class="site-subtitle">A Workshop on BGP Communities</p>
+    <div class="event-meta" aria-label="Event details">
+      <span>ACM IMC 2026</span>
+      <span>Karlsruhe, Germany</span>
+      <span>Date to be announced</span>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#participation">Participation</a></li>
+      <li><a href="#organizers">Organizers</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">BGP communities are widely used by network operators to express routing policy, yet their operational use, visibility, and interpretation remain only partially understood.</p>
+      <p>Communities in the Wild brings together network operators, Internet measurement researchers, and tool developers to discuss operational practice, measurement methodologies, observability, validation, and emerging research directions related to BGP communities.</p>
+      <p>The workshop will combine invited presentations with moderated discussions and community exchange. Its goal is to strengthen collaboration between the operational routing and Internet measurement communities, identify open measurement challenges, and help shape future research and operational practice.</p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><time datetime="2026-07">July 2026</time><span>The workshop was accepted as part of the ACM IMC 2026 Workshop and Hackathon Program.</span></li>
+        <li><time datetime="2026-08">August 2026</time><span>Workshop website launched.</span></li>
+      </ul>
+    </section>
+
+    <section id="program">
+      <h2>Program</h2>
+      <p class="notice">The program below is tentative and will be updated as speakers and scheduling are confirmed.</p>
+      <table class="program-table">
+        <thead><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead>
+        <tbody>
+          <tr><td class="time">09:00–09:15</td><td><strong>Welcome</strong></td></tr>
+          <tr><td class="time">09:15–10:15</td><td><strong>Session I: Operational Practice</strong><br>Invited presentations on operational use in a global CDN and BGP communities at IXP route servers, followed by discussion.</td></tr>
+          <tr><td class="time">10:15–10:45</td><td><strong>Coffee break</strong></td></tr>
+          <tr><td class="time">10:45–12:00</td><td><strong>Session II: Measurement, Visibility, and Interpretation</strong><br>Invited presentations on measurement tooling, experimental validation, and community visibility in route collectors, followed by discussion.</td></tr>
+          <tr><td class="time">12:00–13:30</td><td><strong>Lunch</strong></td></tr>
+          <tr><td class="time">13:30–14:45</td><td><strong>Session III: Applications and Emerging Directions</strong><br>Invited presentations on communities in geolocation and intent-based networking, followed by discussion.</td></tr>
+          <tr><td class="time">14:45–15:15</td><td><strong>Coffee break</strong></td></tr>
+          <tr><td class="time">15:15–16:30</td><td><strong>Open Discussion</strong><br>Moderated discussion on observability, documentation, tooling gaps, validation, and future collaboration.</td></tr>
+          <tr><td class="time">16:30–17:00</td><td><strong>Wrap-up</strong><br>Summary, community priorities, future collaborations, and next steps.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="speakers">
+      <h2>Invited Speakers</h2>
+      <p class="placeholder">Confirmed speakers will be announced soon.</p>
+    </section>
+
+    <section id="participation">
+      <h2>Participation</h2>
+      <p>The workshop welcomes participation from network operators, Internet exchange operators, CDN and cloud providers, Internet measurement and routing security researchers, geolocation and measurement platform providers, and developers of routing analysis tools.</p>
+      <p>Participation details and any registration requirements will be posted here once they are confirmed by ACM IMC 2026.</p>
+    </section>
+
+    <section id="organizers">
+      <h2>Organizers</h2>
+      <div class="people-grid">
+        <div class="person"><strong>Thomas Krenc</strong><span>IIJ Research Lab</span></div>
+        <div class="person"><strong>Robert Beverly</strong><span>San Diego State University</span></div>
+      </div>
+    </section>
+
+    <section id="venue">
+      <h2>Venue</h2>
+      <p>The workshop will be co-located with ACM IMC 2026 in Karlsruhe, Germany. The exact date, room, and venue details will be announced by the conference organizers.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For questions about the workshop, contact <a href="mailto:tkrenc@iij.ad.jp">Thomas Krenc</a>.</p>
+    </section>
+  </main>
+
+  <footer>Communities in the Wild · A Workshop on BGP Communities · ACM IMC 2026</footer>
+</body>
+</html>
