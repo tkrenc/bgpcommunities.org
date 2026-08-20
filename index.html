@@ -29,16 +29,27 @@
     a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
     a:hover { color: var(--accent-dark); }
     .site-header {
-      background: var(--surface);
+      background-color: var(--surface);
+      background-image: url("background_banner.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border-bottom: 1px solid var(--border);
       text-align: center;
-      padding: 3.5rem 1.25rem 2.75rem;
+      padding: 1.5rem 1.25rem 2.75rem;
     }
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
     .logo {
       display: block;
-      width: min(180px, 45vw);
+      width: clamp(58px, 6vw, 40px);
       height: auto;
-      margin: 0 auto 1.5rem;
+      flex: 0 0 auto;
     }
     .site-title {
       margin: 0;
@@ -143,6 +154,8 @@
     @media (max-width: 650px) {
       body { font-size: 16px; }
       .site-header { padding-top: 2.5rem; }
+      .title-row { gap: 0.65rem; }
+      .logo { width: 54px; }
       .site-nav { position: static; }
       .news-list li { grid-template-columns: 1fr; gap: 0.1rem; }
       .program-table, .program-table tbody, .program-table tr, .program-table td { display: block; width: 100%; }
@@ -155,11 +168,12 @@
 </head>
 <body>
   <header class="site-header">
-    <img class="logo" src="assets/logo.svg" alt="Communities in the Wild workshop logo" onerror="this.style.display='none'">
-    <h1 class="site-title">Communities in the Wild</h1>
+    <div class="title-row">
+      <h1 class="site-title">Communities in the Wild</h1>
+    </div>
     <p class="site-subtitle">A Workshop on BGP Communities</p>
     <div class="event-meta" aria-label="Event details">
-      <span>ACM IMC 2026</span>
+      <span><a href="https://conferences.sigcomm.org/imc/2026/">ACM IMC 2026</a></span>
       <span>Karlsruhe, Germany</span>
       <span>Monday, October 12, 2026</span>
     </div>
@@ -172,9 +186,9 @@
       <li><a href="#program">Program</a></li>
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#participation">Participation</a></li>
-      <li><a href="#organizers">Organizers</a></li>
+      <li><a href="#registration">Registration</a></li>
       <li><a href="#venue">Venue</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#organizers">Organizers</a></li>
     </ul>
   </nav>
 
@@ -239,6 +253,15 @@
       <p>The workshop welcomes participation from network operators, Internet exchange operators, CDN and cloud providers, Internet measurement and routing security researchers, geolocation and measurement platform providers, and developers of routing analysis tools.</p>
       <p>We particularly encourage participation from network operators interested in sharing operational experience and engaging with the research community. The workshop is intended to foster discussion and exchange between practitioners and researchers working on BGP communities.</p>
       <p>Participation details and any registration requirements will be posted here once they are confirmed by ACM IMC 2026.</p>
+    </section>
+
+    <section id="registration">
+      <h2>Registration</h2>
+      <p>
+        Attendance is handled through the standard
+        <a href="https://conferences.sigcomm.org/imc/2026/registration/">ACM IMC 2026 registration</a>
+        process. Participants may register for the workshops only; registration for the main conference is not required to attend the BGP Communities Workshop.
+      </p>
     </section>
 
     <section id="venue">
