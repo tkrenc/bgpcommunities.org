@@ -218,40 +218,100 @@
 
     <section id="program">
       <h2>Program</h2>
-      <p class="notice">The program below is tentative and will be updated as speakers and scheduling are confirmed.</p>
+      <p class="notice">
+        The program below is preliminary and subject to minor changes.
+      </p>
+
       <table class="program-table">
-        <thead><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead>
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Activity</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td class="time">13:30–13:40</td><td><strong>Welcome</strong><br>Introduction to the workshop and its goals.</td></tr>
-          <tr><td class="time">13:40–14:50</td><td><strong>Session I: Operational Practice</strong><br>Invited presentations by network operators, IXPs, CDNs, and cloud providers on the operational use of BGP communities, followed by discussion.</td></tr>
-          <tr><td class="time">14:50–15:15</td><td><strong>Coffee break</strong></td></tr>
-          <tr><td class="time">15:15–16:25</td><td><strong>Session II: Measurement and Emerging Applications</strong><br>Invited presentations on Internet measurement, community observability and interpretation, validation, geolocation, intent-based networking, and emerging applications of BGP communities, followed by discussion.</td></tr>
-          <tr><td class="time">16:25–17:00</td><td><strong>Open Discussion</strong><br>Toward a BGP Communities "State of the Union": current practice, open challenges, research opportunities, and community priorities.</td></tr>
-          <tr><td class="time">17:00–</td><td><strong>Biergarten (optional)</strong><br>For anyone still willing to discuss BGP communities after half a day, we'll continue the conversation at a nearby Biergarten. The first beer is on Thomas. 🍺</td></tr>
+
+          <tr>
+            <td class="time">13:30–13:40</td>
+            <td>
+              <strong>Welcome</strong><br>
+              Introduction to the workshop and its goals.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="time">13:40–14:50</td>
+            <td>
+              <strong>Session I: Operational Practice</strong><br>
+              Perspectives on how BGP communities are used in operational networks, including internal workflows,
+              interconnection, policy signaling, and operational challenges.
+              <ul>
+                <li><strong>Romain Fontugne (IIJ)</strong> — ISP community workflows; internal vs external use; what researchers cannot observe</li>
+                <li><strong>Marcel Flores (Netflix)</strong> — CDN community usage; internal vs externally visible semantics</li>
+                <li><strong>Vasileios Giotsas (Cloudflare)</strong> — CDN community usage; operational lessons</li>
+                <li><strong>Pascal Hennen (DE-CIX)</strong> — RPKI validation communities; update churn; global routing impact</li>
+              </ul>
+              Followed by discussion.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="time">14:50–15:15</td>
+            <td><strong>Coffee break</strong></td>
+          </tr>
+
+          <tr>
+            <td class="time">15:15–16:35</td>
+            <td>
+              <strong>Session II: Measurement, Interpretation, and Emerging Applications</strong><br>
+              Perspectives on observing, interpreting, validating, and making new uses of BGP communities.
+              <ul>
+                <li><strong>Italo Cunha (UFMG)</strong> — Controlled community experiments; PEERING as ground truth; auditing community semantics</li>
+                <li><strong>Cristel Pelsser (UCLouvain)</strong> — Community visibility at bgproutes.io</li>
+                <li><strong>Ties de Kock (RIPE NCC)</strong> — RIPEstat; YANG model; geo-community / collector-location analysis</li>
+                <li><strong>Yixin Sun (UVA)</strong> — Automatic community dictionary creation using LLMs</li>
+                <li><strong>Kevin Vermeulen (École Polytechnique)</strong> — BGP hijacks at IXPs; malformed community usage and security implications</li>
+                <li><strong>Oliver Hohlfeld (University of Kassel)</strong> — LARS; route-server community-processing overhead; scalability</li>
+              </ul>
+              Followed by discussion.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="time">16:35–17:00</td>
+            <td>
+              <strong>Open Discussion</strong><br>
+              Toward a BGP Communities "State of the Union": current practice, open challenges,
+              research opportunities, and community priorities.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="time">17:00–</td>
+            <td>
+              <strong>Biergarten (optional)</strong><br>
+              For anyone still willing to discuss BGP communities after half a day, we'll continue
+              the conversation at a nearby Biergarten. The first beer is on Thomas. 🍺
+            </td>
+          </tr>
+
         </tbody>
       </table>
     </section>
 
     <section id="speakers">
-      <h2>Invited Speakers</h2>
-
-      <p>
-        The following speakers have confirmed or expressed interest in participating.
-        Additional invitations are in progress, and the final program will be announced
-        once scheduling is finalized.
-      </p>
+      <h2>Speakers</h2>
 
       <ul>
-        <li><strong>DE-CIX</strong> — Pascal Hennen</li>
-        <li><strong>Netflix</strong> — Marcel Flores</li>
         <li><strong>IIJ</strong> — Romain Fontugne</li>
+        <li><strong>Netflix</strong> — Marcel Flores</li>
         <li><strong>Cloudflare</strong> — Vasileios Giotsas</li>
-        <li><strong>RIPE NCC / RIPE RIS</strong> — Ties de Kock</li>
-        <li><strong>IIJ</strong> — Randy Bush</li>
-        <li><strong>University of Virginia</strong> — Yixin Sun</li>
-        <li><strong>UCLouvain / bgproutes.io</strong> — Cristel Pelsser</li>
-        <li><strong>Columbia University</strong> — Ethan Katz-Bassett</li>
+        <li><strong>DE-CIX</strong> — Pascal Hennen</li>
         <li><strong>UFMG</strong> — Italo Cunha</li>
+        <li><strong>UCLouvain / bgproutes.io</strong> — Cristel Pelsser</li>
+        <li><strong>RIPE NCC / RIPE RIS</strong> — Ties de Kock</li>
+        <li><strong>University of Virginia</strong> — Yixin Sun</li>
+        <li><strong>École Polytechnique</strong> — Kevin Vermeulen</li>
         <li><strong>University of Kassel</strong> — Oliver Hohlfeld</li>
       </ul>
     </section>
